@@ -14,3 +14,9 @@ __pycache__/
 
 # Environnements et outils locaux
 .vscode/
+
+# Pipeline logs
+logs/
+
+# Experimental dataset not used by the current pipeline
+data/raw/tourists.csv

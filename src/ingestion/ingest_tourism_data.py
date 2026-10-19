@@ -1,7 +1,35 @@
+from pathlib import Path
+import logging
 import pandas as pd
 
+# Racine du projet
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+# Dossier des logs
+logs_dir = PROJECT_ROOT / "logs"
+logs_dir.mkdir(parents=True, exist_ok=True)
+
+# Configuration du logging
+logging.basicConfig(
+    filename=logs_dir / "pipeline.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    encoding="utf-8"
+)
+
+logger = logging.getLogger(__name__)
+
+logger.info("Début de l'ingestion des données touristiques")
+
+
 # Chemin du fichier CSV
-input_file = "data/raw/tourism_nights_by_destination.csv"
+input_file = PROJECT_ROOT / "data" / "raw" / "tourism_nights_by_destination.csv"
+
+# Dossier de sortie
+output_dir = PROJECT_ROOT / "data" / "processed"
+output_dir.mkdir(parents=True, exist_ok=True)
+
+output_file = output_dir / "tourism_nights_clean.csv"
 
 # Lire les données touristiques
 df = pd.read_csv(input_file, sep=";")
@@ -43,11 +71,11 @@ print("\nAperçu des données transformées :")
 print(df.head())
 
 # Enregistrer les données nettoyées
-output_file = "data/processed/tourism_nights_clean.csv"
 
 df.to_csv(output_file, index=False)
 
 print(f"\nDonnées nettoyées enregistrées dans : {output_file}")
+logger.info("Données nettoyées enregistrées avec succès.")
 
 # ==========================================
 # PHASE 4 : CONTROLE DE LA QUALITE DES DONNEES
