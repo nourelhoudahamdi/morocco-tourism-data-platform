@@ -1,4 +1,4 @@
-﻿# Morocco Tourism Data Platform
+ ## Morocco Tourism Data Platform
 
 ## 1. Project Overview
 
@@ -7,8 +7,7 @@ The Morocco Tourism Data Platform is a beginner-friendly Data Engineering projec
 The current version focuses on tourism overnight stays (*nuitées touristiques*) across 12 destinations in Morocco, covering the period from 2012 to 2020.
 
 The goal is to transform raw tourism data into structured information that can help users understand tourism trends and compare destinations over time.
-
-## 2. Project Objectives
+ ## 2. Project Objectives
 
 * Ingest tourism data from CSV files.
 * Clean and validate the data using Python.
@@ -17,34 +16,8 @@ The goal is to transform raw tourism data into structured information that can h
 * Compare tourism overnight stays between 2019 and 2020.
 * Generate visualizations to communicate the results.
 * Build a foundation for a more complete tourism analytics platform.
-
-## 3. Data Pipeline Architecture
-
-The current pipeline follows these steps:
-
-```text
-Raw CSV Data
-     |
-     v
-Data Ingestion
-     |
-     v
-Data Cleaning and Quality Checks
-     |
-     v
-Processed CSV Data
-     |
-     v
-PostgreSQL Database
-     |
-     v
-Data Analysis
-     |
-     v
-Visualization
-```
-
-## 4. Technologies Used
+ 
+## 3. Technologies Used
 
 * **Python** — data processing and pipeline orchestration
 * **Pandas** — data cleaning and analysis
@@ -52,29 +25,8 @@ Visualization
 * **Matplotlib** — data visualization
 * **Git** — version control
 
-## 5. Project Structure
 
-```text
-morocco-tourism-data-platform/
-├── data/
-│   ├── raw/
-│   │   └── tourism_nights_by_destination.csv
-│   └── processed/
-│       ├── tourism_nights_clean.csv
-│       ├── tourism_analysis_results.csv
-│       └── comparison_2019_2020.png
-├── src/
-│   ├── ingestion/
-│   │   └── ingest_tourism_data.py
-│   ├── database/
-│   │   └── load_tourism_to_postgres.py
-│   └── analytics/
-│       ├── tourism_analysis.py
-│       └── tourism_visualization.py
-└── run_pipeline.py
-```
-
-## 6. Current Features
+## 4. Current Features
 
 * CSV data ingestion
 * Data cleaning and validation
@@ -85,7 +37,7 @@ morocco-tourism-data-platform/
 * Comparison chart generation
 * Pipeline execution through a single Python command
 
-## 7. Initial Findings
+## 5. Initial Findings
 
 The current analysis shows that:
 
@@ -95,7 +47,7 @@ The current analysis shows that:
 
 These findings describe the available dataset and do not, by themselves, establish the causes of the changes.
 
-## 8. How to Run the Project
+## 6. How to Run the Project
 
 ### Prerequisites
 
@@ -107,9 +59,9 @@ These findings describe the available dataset and do not, by themselves, establi
 
 Activate the project's virtual environment, open a terminal in the project root, and run:
 
-```powershell
+   powershell
 python .\run_pipeline.py
-```
+
 
 The pipeline executes data ingestion, PostgreSQL loading, analysis, and visualization.
 
@@ -119,13 +71,13 @@ The database loader expects the PostgreSQL password to be available through the 
 
 In PowerShell, set it for the current terminal session with:
 
-```powershell
+   powershell
 $env:PGPASSWORD = Read-Host "Entrez le mot de passe PostgreSQL"
-```
+
 
 Enter the password locally when prompted. Do not publish your database password or commit it to Git.
 
-## 9. Future Improvements
+## 7. Future Improvements
 
 * Add more reliable tourism data sources.
 * Automate data ingestion.
